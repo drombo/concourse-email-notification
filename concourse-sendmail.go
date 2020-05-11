@@ -57,7 +57,7 @@ func main() {
 	message += "\r\n" + string([]byte(body))
 
 	err = smtp.SendMail(smtpServer + ":" + smtpPort,
-		smtp.PlainAuth("", emailId, password, "smtp.gmail.com"),
+		smtp.PlainAuth("", emailId, password, smtpServer),
 		emailId, sArr, []byte(message))
 
 	if err != nil {
